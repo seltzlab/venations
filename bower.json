@@ -1,0 +1,25 @@
+{
+  "name": "venations",
+  "version": "0.0.0",
+  "authors": [
+    "Antonino Caccamo <antonio@seltzlab.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper": "~0.9.24",
+    "underscore": "~1.8.3"
+  }
+}

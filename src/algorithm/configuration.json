@@ -1,0 +1,27 @@
+module.exports = {
+    "shape": "circle",
+    "auxinRadius": 0.0125,
+    "venationRadius": 0.0125,
+    "threesholdAuxinRadius": 0.009,
+    "threesholdVenationRadius": 0.0125,
+    "neighborhoodRadius": 0.1,
+    "seedAuxins": 2000,
+    "seedVenations": 1,
+    "seedsCenteringFactor": 0.01,
+    "maxVenationNodeAge": 2,
+    "renderer": "PathRenderer",
+    "rendererConfiguration": {
+        "drawAuxins": true,
+        "twisted": true,
+        "venationStrokeColor": "#A2CA01",
+        "venationStrokeColorAging": false,
+        "venationStrokeColorAgingFactor": 0.0035,
+        "venationStrokeWidth": 1,
+        "venationStrokeWidthAging": true,
+        "venationStrokeWidthAgingFactor": 0.1,
+        "auxinStrokeColor": "#feba18",
+        "shapeFillColor": "#fff",
+        "shapeStrokeColor": "#666",
+        "shapeStrokeWidth": 1
+    }
+}
