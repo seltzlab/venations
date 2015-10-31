@@ -119,7 +119,7 @@ var OpenVenationAlgorithm = function() {
 
     function placeVenations() {
         var totalVenations = venations.length;
-
+        // the venations life loop: one cycle -> age++
         for (var i = 0; i < totalVenations; i++) {
             if (venations[i].age < validVenationThreeshold) {
                 placeVenation(venations[i]);
@@ -179,8 +179,9 @@ var OpenVenationAlgorithm = function() {
         var totalNeighborAuxins = venation.neighborAuxins.length;
         for (var i = 0; i < totalNeighborAuxins; i++) {
             var influencedVenations = getInfluencedVenations(venation.neighborAuxins[i].point);
+            var totalInfluencedVenations = influencedVenations.length;
             var isInfluenced = false;
-            for (var c = 0; c < influencedVenations.length; c++) {
+            for (var c = 0; c < totalInfluencedVenations; c++) {
                 if (influencedVenations[c].point == venation.point) {
                     isInfluenced = true;
                     break;
@@ -209,7 +210,7 @@ var OpenVenationAlgorithm = function() {
     }
 
     function getInfluencedVenations(point) {
-        var relativeNeighborVenations = getRelativeNeighborVeinNodes(point);
+        var relativeNeighborVenations = getRelativeNeighborVeinations(point);
         var totalRelativeNeighborVenations = relativeNeighborVenations.length;
         for (var i = 0; i < totalRelativeNeighborVenations; i++) {
             var s = relativeNeighborVenations[i].point - point;
@@ -223,7 +224,7 @@ var OpenVenationAlgorithm = function() {
         return relativeNeighborVenations;
     }
 
-    function getRelativeNeighborVeinNodes(point) {
+    function getRelativeNeighborVeinations(point) {
         var neighborVenations = getNeighborVenations(point);
         var relativeNeighborVenations = [];
         var totalNeighborVenations = neighborVenations.length;
@@ -232,7 +233,7 @@ var OpenVenationAlgorithm = function() {
             var fail = false;
 
             for (var c = 0; c < totalNeighborVenations; c++) {
-                if (neighborVenations[i].point == neighborVenations[c].point) {
+                if (c == i) {
                     continue;
                 }
                 var auxinToP1 = neighborVenations[c].point - point;
@@ -241,8 +242,8 @@ var OpenVenationAlgorithm = function() {
                 }
                 var p0ToP1 = neighborVenations[c].point - neighborVenations[i].point;
                 if (auxinToP0.length > p0ToP1.length) {
-                  fail = true;
-                  break;
+                    fail = true;
+                    break;
                 }
             }
 
@@ -255,7 +256,7 @@ var OpenVenationAlgorithm = function() {
     }
 
     function getNeighborVenations(point) {
-        var neighborhoodRadius = 4.0 * configuration.neighborhoodRadius * configuration.neighborhoodRadius;
+        var neighborhoodRadius = 3 * configuration.neighborhoodRadius * configuration.neighborhoodRadius;
         var neighborVenations = [];
         var totalVenations = venations.length;
         for (var i = 0; i < totalVenations; i++) {

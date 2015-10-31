@@ -12,7 +12,7 @@ module.exports = {
     "renderer": "PathRenderer",
     "rendererConfiguration": {
         "drawAuxins": true,
-        "twisted": true,
+        "twisted": false,
         "venationStrokeColor": "#A2CA01",
         "venationStrokeColorAging": false,
         "venationStrokeColorAgingFactor": 0.0035,
