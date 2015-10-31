@@ -3,6 +3,8 @@ var CirclesRenderer = require("./CirclesRenderer");
 var LinesRenderer = require("./LinesRenderer");
 var PathRenderer = require("./PathRenderer");
 
+var VenationsMatrix = require("./VenationsMatrix");
+
 switch (configuration.renderer) {
     case 'LinesRenderer':
         var Renderer = LinesRenderer;
@@ -19,5 +21,6 @@ Renderer.init();
 paper.view.onFrame = function(event) {
     if (!Renderer.draw()) {
         paper.view.onFrame = null;
+        console.log(VenationsMatrix.getMatrix());
     }
 };

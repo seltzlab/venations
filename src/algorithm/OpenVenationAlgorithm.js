@@ -1,5 +1,6 @@
 var Auxin = require("./Auxin.js");
 var Venation = require("./Venation.js");
+var VenationsMatrix = require("./VenationsMatrix.js");
 var configuration = require("./configuration.json");
 
 var OpenVenationAlgorithm = function() {
@@ -258,11 +259,15 @@ var OpenVenationAlgorithm = function() {
     function getNeighborVenations(point) {
         var neighborhoodRadius = 3 * configuration.neighborhoodRadius * configuration.neighborhoodRadius;
         var neighborVenations = [];
-        var totalVenations = venations.length;
+        var neighborVenationsByMatrix = VenationsMatrix.get(point);
+        if (neighborVenationsByMatrix.length < 1) {
+            neighborVenationsByMatrix = venations.slice(0);
+        }
+        var totalVenations = neighborVenationsByMatrix.length;
         for (var i = 0; i < totalVenations; i++) {
-            var d = point.getDistance(venations[i].point, true);
+            var d = point.getDistance(neighborVenationsByMatrix[i].point, true);
             if (d < neighborhoodRadius) {
-                neighborVenations.push(venations[i]);
+                neighborVenations.push(neighborVenationsByMatrix[i]);
             }
         }
 
