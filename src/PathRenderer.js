@@ -1,5 +1,5 @@
 var OpenVenationAlgorithm = require("./OpenVenationAlgorithm");
-var configuration = require("./configuration.json");
+var configuration = require("../configuration.json");
 
 var PathRenderer = function() {
 

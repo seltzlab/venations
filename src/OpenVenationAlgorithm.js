@@ -1,7 +1,7 @@
 var Auxin = require("./Auxin.js");
 var Venation = require("./Venation.js");
 var VenationsMatrix = require("./VenationsMatrix.js");
-var configuration = require("./configuration.json");
+var configuration = require("../configuration.json");
 
 var OpenVenationAlgorithm = function() {
 

@@ -1,4 +1,4 @@
-var configuration = require("./configuration.json");
+var configuration = require("../configuration.json");
 var CirclesRenderer = require("./CirclesRenderer");
 var LinesRenderer = require("./LinesRenderer");
 var PathRenderer = require("./PathRenderer");
@@ -17,10 +17,11 @@ switch (configuration.renderer) {
         var Renderer = CirclesRenderer;
 }
 
+console.time("render");
 Renderer.init();
 paper.view.onFrame = function(event) {
     if (!Renderer.draw()) {
         paper.view.onFrame = null;
-        console.log(VenationsMatrix.getMatrix());
+        console.timeEnd("render");
     }
 };

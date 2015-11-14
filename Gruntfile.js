@@ -25,17 +25,6 @@ module.exports = function(grunt) {
             }
         },
 
-        uglify: {
-            prod: {
-                options: {
-                    beautify: false
-                },
-                files: [{
-                    'dist/venations.min.js': 'dist/venations.js'
-                }]
-            }
-        },
-
         browserify: {
             options: {
                 browserifyOptions: {
@@ -65,7 +54,5 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('build', ['clean:all', 'browserify:dev', 'concat']);
-    grunt.registerTask('build:prod', ['build', 'uglify:prod']);
-
     grunt.registerTask('default', ['build']);
 }

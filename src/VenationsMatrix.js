@@ -1,7 +1,7 @@
 var VenationsMatrix = function() {
 
     // matrix neighbor radius
-    var R = 9;
+    var R = 1;
 
     // init the matrix
     var N = 10;
@@ -15,8 +15,8 @@ var VenationsMatrix = function() {
 
     var coords = function(point) {
         return {
-            i: Math.floor(point.x * N),
-            j: Math.floor(point.y * N)
+            i: Math.floor(Math.abs(point.x) * N),
+            j: Math.floor(Math.abs(point.y) * N)
         };
     }
 

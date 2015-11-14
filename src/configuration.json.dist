@@ -6,22 +6,22 @@ module.exports = {
     "threesholdVenationRadius": 0.0125,
     "neighborhoodRadius": 0.1,
     "seedAuxins": 2000,
-    "seedVenations": 1,
-    "seedsCenteringFactor": 0.01,
+    "seedVenations": 3,
+    "seedsCenteringFactor": 0.08,
     "maxVenationNodeAge": 2,
     "renderer": "PathRenderer",
     "rendererConfiguration": {
-        "drawAuxins": true,
+        "drawAuxins": false,
         "twisted": false,
-        "venationStrokeColor": "#A2CA01",
+        "venationStrokeColor": "#ACD700",
         "venationStrokeColorAging": false,
         "venationStrokeColorAgingFactor": 0.0035,
         "venationStrokeWidth": 1,
         "venationStrokeWidthAging": true,
-        "venationStrokeWidthAgingFactor": 0.1,
+        "venationStrokeWidthAgingFactor": 0.05,
         "auxinStrokeColor": "#feba18",
-        "shapeFillColor": "#fff",
+        "shapeFillColor": "#5c7300",
         "shapeStrokeColor": "#666",
-        "shapeStrokeWidth": 1
+        "shapeStrokeWidth": 0
     }
 }
